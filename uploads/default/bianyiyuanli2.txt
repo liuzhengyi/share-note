@@ -1,0 +1,166 @@
+  PID TTY          TIME CMD
+    1 ?        00:00:11 init
+    2 ?        00:00:00 kthreadd
+    3 ?        00:03:18 ksoftirqd/0
+    6 ?        00:00:00 migration/0
+   11 ?        00:00:00 cpuset
+   12 ?        00:00:00 khelper
+   13 ?        00:00:00 netns
+   15 ?        00:00:00 sync_supers
+   16 ?        00:00:00 bdi-default
+   17 ?        00:00:00 kintegrityd
+   18 ?        00:00:00 kblockd
+   19 ?        00:00:00 ata_sff
+   20 ?        00:00:00 khubd
+   21 ?        00:00:00 md
+   23 ?        00:00:00 khungtaskd
+   24 ?        00:00:12 kswapd0
+   25 ?        00:00:00 ksmd
+   26 ?        00:00:00 fsnotify_mark
+   27 ?        00:00:00 ecryptfs-kthrea
+   28 ?        00:00:00 crypto
+   36 ?        00:00:00 kthrotld
+   39 ?        00:00:00 scsi_eh_0
+   40 ?        00:00:00 scsi_eh_1
+  285 ?        00:00:12 jbd2/sda1-8
+  286 ?        00:00:00 ext4-dio-unwrit
+  287 ?        00:00:05 flush-8:0
+  341 ?        00:00:03 upstart-udev-br
+  345 ?        00:00:02 udevd
+  573 ?        00:00:50 rsyslogd
+  605 ?        00:02:45 dbus-daemon
+  620 ?        00:00:00 kmemstick
+  727 ?        00:00:00 kpsmoused
+  739 ?        00:01:03 NetworkManager
+  953 ?        00:00:03 polkitd
+ 1192 ?        00:00:00 hd-audio0
+ 1201 ?        00:00:00 l2cap
+ 1317 ?        00:00:00 upstart-socket-
+ 1452 pts/15   00:00:00 bash
+ 1471 tty4     00:00:00 getty
+ 1479 tty5     00:00:00 getty
+ 1483 ?        00:00:00 pptpd
+ 1499 tty2     00:00:00 getty
+ 1500 tty3     00:00:00 getty
+ 1507 tty6     00:00:00 getty
+ 1523 ?        00:00:00 cron
+ 1525 ?        00:00:00 atd
+ 1544 ?        00:01:47 mysqld
+ 1548 ?        00:00:00 lxdm-binary
+ 1562 ?        00:01:10 irqbalance
+ 1574 ?        00:01:32 chrome
+ 1581 tty7     01:01:00 Xorg
+ 1585 ?        00:00:00 cupsd
+ 1642 ?        00:00:00 kdmflush
+ 1655 ?        00:00:00 kcryptd_io
+ 1656 ?        00:00:00 kcryptd
+ 1682 ?        00:00:01 apache2
+ 1757 ?        00:00:16 apache2
+ 1791 tty1     00:00:00 getty
+ 1913 ?        00:00:00 console-kit-dae
+ 1986 ?        00:00:08 lxsession
+ 2011 ?        01:04:54 ibus-daemon
+ 2018 ?        00:00:00 ibus-gconf
+ 2020 ?        00:16:05 python
+ 2022 ?        00:29:32 ibus-x11
+ 2033 ?        00:00:01 ssh-agent
+ 2035 ?        00:00:00 dbus-launch
+ 2038 ?        00:00:00 dbus-launch
+ 2040 ?        00:00:11 dbus-daemon
+ 2041 ?        00:01:48 dbus-daemon
+ 2043 ?        00:00:00 gconfd-2
+ 2048 ?        00:04:11 openbox
+ 2053 ?        00:00:53 xscreensaver
+ 2055 ?        00:00:26 pcmanfm
+ 2056 ?        00:00:00 polkit-gnome-au
+ 2063 ?        00:05:53 nm-applet
+ 2067 ?        00:53:45 chrome
+ 2068 ?        00:00:13 menu-cached
+ 2073 ?        00:01:34 xfce4-power-man
+ 2077 ?        00:00:00 xfconfd
+ 2081 ?        00:00:00 gvfsd
+ 2088 ?        00:00:00 gvfs-fuse-daemo
+ 2094 ?        00:00:44 upowerd
+ 2095 ?        00:01:49 chrome
+ 2098 ?        00:00:00 chrome-sandbox
+ 2100 ?        00:00:00 chrome
+ 2120 ?        00:00:00 gconfd-2
+ 2125 ?        00:00:00 nacl_helper_boo
+ 2148 ?        00:00:14 flush-ecryptfs-
+ 2156 ?        00:00:05 gvfs-gdu-volume
+ 2161 ?        00:00:10 udisks-daemon
+ 2162 ?        00:00:04 udisks-daemon
+ 2169 ?        00:00:20 gvfs-afc-volume
+ 2172 ?        00:00:00 gvfs-gphoto2-vo
+ 2258 ?        00:25:44 chrome
+ 2264 ?        00:04:53 chrome
+ 2268 ?        00:11:00 chrome
+ 2276 ?        00:02:22 chrome
+ 2282 ?        00:00:25 chrome
+ 4118 ?        00:00:00 gvfsd-metadata
+ 4137 ?        00:00:00 dconf-service
+ 5678 ?        00:00:03 apache2
+ 5757 pts/6    00:00:11 bash
+ 6467 pts/8    00:00:01 vi
+ 6469 pts/14   00:00:00 bash
+ 6577 ?        00:00:01 apache2
+ 6824 pts/2    00:00:00 ping
+ 6968 ?        00:00:01 apache2
+ 8090 ?        00:08:56 chrome
+ 8877 pts/4    00:00:01 bash
+ 8944 ?        00:00:00 apache2
+ 8945 pts/2    00:00:00 vi
+ 8990 ?        00:00:00 apache2
+ 9116 pts/9    00:00:00 bash
+ 9159 pts/12   00:00:02 vi
+ 9205 ?        00:01:03 chrome <defunct>
+10538 ?        00:02:55 chrome
+10566 pts/12   00:00:01 bash
+10807 ?        00:00:03 apache2
+14460 ?        00:00:14 lxpanel
+15335 ?        00:03:58 chrome
+15582 pts/11   00:00:01 bash
+15594 ?        00:00:01 chrome
+15860 ?        00:01:24 chrome
+15937 pts/8    00:00:00 bash
+19680 ?        00:00:34 wpa_supplicant
+19889 pts/1    00:00:28 vi
+20507 ?        00:39:22 gnome-terminal
+20511 ?        00:00:00 gnome-pty-helpe
+20512 pts/0    00:00:00 bash
+20584 pts/0    00:00:00 vi
+20645 pts/2    00:00:01 bash
+21323 ?        00:00:00 sshd
+21395 ?        00:00:00 gnome-keyring-d
+22342 ?        00:02:42 ibus-engine-pin
+22544 pts/7    00:00:01 vi
+23327 ?        00:00:02 apache2
+25184 pts/3    00:00:02 bash
+27275 ?        00:00:03 apache2
+27276 ?        00:00:02 apache2
+27998 ?        00:00:00 gvfsd-trash
+28845 pts/1    00:00:01 bash
+29256 pts/5    00:00:00 vi
+29489 pts/11   00:00:01 mysql
+29535 pts/10   00:00:02 vi
+29755 ?        00:00:00 udevd
+29756 ?        00:00:00 udevd
+30120 ?        00:00:00 migration/1
+30121 ?        00:00:01 kworker/1:3
+30122 ?        00:00:00 ksoftirqd/1
+30123 ?        00:00:00 kworker/1:0
+30146 ?        00:00:00 kworker/u:32
+30149 ?        00:00:00 kworker/u:35
+30159 ?        00:00:00 hci0
+30171 pts/7    00:00:02 bash
+30230 ?        00:00:00 mmcqd/0
+31122 ?        00:00:02 kworker/0:0
+31647 pts/10   00:00:12 bash
+31994 pts/5    00:00:04 bash
+32085 pts/14   00:00:01 vi
+32087 pts/13   00:00:00 bash
+32133 ?        00:00:00 kworker/1:1
+32134 ?        00:00:00 kworker/0:2
+32175 pts/13   00:00:04 vi
+32181 ?        00:00:00 kworker/1:2
+32185 pts/6    00:00:00 ps

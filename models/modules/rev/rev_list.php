@@ -1,0 +1,79 @@
+<?php
+$id = get_argg('i');
+$user_id = get_sess_userid();
+if(empty($id) || $user_id === $id) {
+	$id = $user_id;
+} else {
+	settype($id, 'integer');
+}
+
+$cur_page = get_argg('cur_page');
+if(empty($cur_page)) {
+	$cur_page = 1;
+} else {
+	settype($cur_page, 'integer');
+}
+
+$items = get_argg('items');
+if(empty($items)) {
+	$items = 4;
+} else {
+	settype($items, 'integer');
+}
+
+$sql_name = "select user_name as name from user_basic where user_id = '$id' limit 1";
+$sql_rev = "select res_name as name, res_id as id, rev_content as content, pro_amount as pro, con_amount as con, pub_time as time from review JOIN resource_basic using(res_id) where user_id = '$id'";
+
+global $dbServs; 
+$dbo = new dbex($dbServs);
+$n = $dbo->getRow($sql_name);
+if(!$n) {
+	echo "<script language=\"javascript\">alert('唔，您访问的用户不存在丫，也许是注销了吧。。。');history.go(-1);</script>";
+	$user_exist = FALSE;
+	$not_exist_msg = "唔，您访问的用户不存在丫，也许是注销了吧。。。";
+} else {
+	$user_exist = TRUE;
+	$name = $n['name'];
+}
+$dbo->setPages($items, $cur_page);
+$revs = $dbo->getRs($sql_rev);
+if(!$revs) {
+	$has_review = FALSE;
+	$no_review_msg = "咦，米有任何评论丫。。。";
+} else {
+	$has_review = TRUE;
+}
+$total_pages = $dbo->total_page();
+$pre_page = $cur_page - 1;
+$next_page = $cur_page + 1;
+
+$total_items = $dbo->total_row();
+$start_item = ($cur_page-1)*$items+1;
+$end_item = ($cur_page == $total_pages)?($total_items):($cur_page*$items);
+?>
+<?php
+/*
+ * 数据说明：
+ * $id		--> 显示该用户的评论
+ * $name 	--> 显示该用户的评论
+ * $user_id	--> 当前登录用户的id
+ * $cur_page 	--> 当前页码
+ * $pre_page	--> 前一页页码
+ * $next_page	--> 后一页页码
+ * $items 	--> 每页显示评论条数
+ * $total_pages	--> 总页数
+ * $total_items	--> 总评论数
+ * $user_exist	--> 是否显示评论消息，为FALSE时提示$not_exist_msg然后跳转后退
+ * $not_exist_msg	--> 不显示评论消息时显示的提示信息
+ * $has_review	--> 是否有评论
+ * $no_review_msg	--> 没有评论时，提示该信息，不跳转。
+ *
+ * $revs
+ *	0['name']	--> 评论的资源的名称
+ *	1['id']		--> 评论的资源的id
+ *	2['content']	--> 评论的内容
+ *	3['pro']		--> 赞同数
+ *	4['con']		--> 反对数
+ *	5['time']	--> 发表时间
+ */
+?>

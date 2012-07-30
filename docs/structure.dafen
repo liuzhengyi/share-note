@@ -1,0 +1,101 @@
+// 2012-05-27
+
+功能模块：
+	用户注册reg.php，个人信息查看，修改；
+	用户登入，登出；
+	分享（上传）资源upload.php；
+	检索，查看资源，查看资源评价；
+	下载资源，评论资源；
+	支持/反对评论；review_con(), review_pro()
+	用户综合信息生成；user_var();
+	资源综合信息生成；res_var();
+	积分控制；score_increase(), score_decrease()
+
+	权限控制：
+		是否登录is_login()，是否下载过此资源
+
+分层：
+	底层：
+		数据库操作封装，cookie/session封装，
+
+
+UI架构：
+=================
+主要uiparts：
+	login/out DIV
+		功能： 用户登录之前，显示为登录form，登录后显示用户基本信息和退出链接。
+		要素： 提交表单，设置cookie，session
+	header DIV
+		功能： 显示logo和标题。 导航，
+		要素： logo，标题。 mainpage，homepage，...
+	search DIV
+		功能： search接口
+		要素： search框，search选项，searchbutton
+	recommend DIV
+		功能：列出跟用户相关的一些资源
+	hot DIV
+		功能：列出热门资源
+	footer DIV
+		要素： 版权声明，等
+
+
+主要页面：
+	系统主页面（main.php）
+		要素：以上各主要uiparts。
+	用户主页面（home.php）
+		要素：个人基本信息，详细信息，最近下载，最近上传
+	检索结果页面（search.php）
+		要素：资源简介，[排序]
+	资源页面（res_show.php）
+		要素：介绍，[预览]，评价，评价的评价
+	上传页面：
+		要素：上传信息填写，验证
+
+
+目录结构：
+
+root/
+	do.php
+	modules.php
+	config.php
+	main.php
+	home.php
+	uiparts/
+		footer.php
+		header.php
+		login.php
+	models/
+		home.php
+		main.php
+		modules/
+			user/
+				user_reg.php
+			exam/
+		uiparts/
+			footer.php
+			header.php
+			login.php
+	modules/
+		home.php
+		main.php
+		modules/
+			user/
+				user_reg.php
+			exam/
+		uiparts/
+			footer.php
+			header.php
+			login.php
+	templates/
+		default/
+			home.php
+			main.php
+			modules/
+				user/
+					user_reg.php
+				exam/
+			uiparts/
+				footer.php
+				header.php
+				login.php
+

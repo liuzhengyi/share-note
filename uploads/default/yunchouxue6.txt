@@ -1,0 +1,12 @@
+../
+├── 2012-05-27-211317_1024x600_scrot.png
+├── baby.jpg
+└── default
+    ├── bianyiyuanli1.txt
+    ├── bianyiyuanli2.txt
+    ├── wangluo1.txt
+    ├── wangluo2.txt
+    ├── wangluo3.txt
+    └── yunchouxue6.txt
+
+1 directory, 8 files
