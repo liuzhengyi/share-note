@@ -1,0 +1,46 @@
+body {
+width: 80%;
+margin: auto;
+margin-top: 50px;
+outline: blue dotted 1px;
+position: relative;
+background-color: #eee;
+}
+
+form p {
+	height: 20px;
+}
+form p input {
+	position: relative;
+	float:right;
+}
+
+#register {
+	width: 40%;
+	outline: red solid 1px;
+	float: left;
+}
+
+#registered {
+	width: 55%;
+	outline: red solid 1px;
+	float: left;
+}
+
+#pagebar {
+	outline: green solid 1px;
+	float: right;
+	width: 40%;
+}
+#pagebar a {
+	outline: blue dotted 1px;
+	margin: 5px;
+}
+
+#clear {
+	clear: both;
+}
+
+.current {
+	background-color: grey;
+}

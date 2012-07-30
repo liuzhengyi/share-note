@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8" xml:lang="utf-8">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>大学生学习资料分享中心</title>
+	    <link rel="stylesheet" type="text/css" href="./skin/default/dafen/main.css" />
+    </head>
+    <body>
+        <div id="TitleContainer">
+            <div id="MainMenu">
+                <ul>
+                    <li><a href="index.php?content=index">主页</a></li>
+                    <li><a href="index.php?content=category">资源分类</a></li>
+                    <li><a href="help.php?content=help">使用帮助</a></li>
+                    <li><a href="about.php?content=about">关于我们</a></li>
+                </ul>
+            </div>
+            <div id="TitleImg">
+                <img src="./skin/default/dafen/logo.png" alt="大学生学习资料分享中心"/>
+            </div>
+        </div>
+
+        <div id="MainContainer">
+            <div id="MainLeft">
+                <div id="News">
+                    <h2>公告</h2>
+                    <!--在PHP中生成内容-->
+                </div>
+                <div id="FriendLinks">
+                    <h2>友情链接</h2>
+                    <!--在PHP中生成内容-->
+                </div>
+            </div>
+            <div id="MainMiddle">
+                <div id="Search">
+                    <form>
+                        <input type="textfield" maxlength="100"/>
+                        <input type="button" value="搜索" />
+                    </form>
+                </div>
+                <div id="ResourceShow">
+					<h2>（资源名称）</h2>
+					<table border='0'>
+						<tr>
+							<td>所属科目：</td><td>数据库课程设计</td>
+						</tr>
+						<tr>
+							<td>类型：</td><td>作品</td>
+						</tr>
+						<tr>
+							<td>大小：</td><td>200k</td>
+						</tr>
+						<tr>
+							<td>上传时间：</td><td>2012-06-01</td>
+						</tr>
+						<tr>
+							<td>上传用户：</td><td>邓磊</td>
+						</tr>
+						<tr>
+							<td>来源：</td><td>？？？</td>
+						</tr>
+						<tr>
+							<td>URL：</td><td>？？？</td>
+						</tr>
+						<tr>
+							<td>下载次数：</td><td>100</td>
+						</tr>
+						<tr>
+							<td>等级：</td><td>精品</td>
+						</tr>
+						<tr>
+							<td>状态：</td><td>？？？</td>
+						</tr>
+						<tr>
+							<td>评分：</td><td>12赞成&nbsp;0反对</td>
+						</tr>
+					</table>
+
+					<h3>简介：</h3>
+					<p>我们的作品～～～～</p>
+
+					<h3><a href="#">下载链接</a></h3>
+
+					<hr/>
+					<h3>最近评论</h3>
+					<ul>
+						<li>强强强强强强强强强强强强</li>
+						<li>强强强强强强强强强强强强</li>
+						<li>强强强强强强强强强强强强</li>
+					</ul>
+
+					<hr/>
+					<h3>您的评价</h3>
+					<form action="do.php?act=???" method='post'>
+						<textarea name="comment" cols="40" rows="7" value=""></textarea><br/>
+						<label for="rating_up">
+							<input type="radio" name="rating" id="rating_up" value="up"/>赞成
+						</label>&nbsp;
+						<label for="rating_down">
+							<input type="radio" name="rating" id="rating_down" value="down"/>反对
+						</label><br/>
+						<input type='submit' name="submit" value="提交"/>
+
+						<input type='hidden' name='submitted' value='TRUE'/>
+					</form>
+                </div>
+            </div>
+            <div id="MainRight">
+                <div id="UserLogin">
+					<table border='0'>
+						<tr>
+							<td>用户名：</td><td><?php echo $user_name;?></td>
+						</tr>
+						<tr>
+							<td>权威值：</td><td><?php echo $user_auth;?></td>
+						</tr>
+						<tr>
+							<td>贡献值：</td><td><?php echo $user_cont;?></td>
+						</tr>
+						<tr>
+							<td><a href="modules.php?app=upload">上传资料</a></td>
+							<td><a href="do.php?act=logout">退出登录</a></td>
+						</tr>
+					</table>
+                </div>
+                <div id="GoodResource">
+                    <h2>优秀资源</h2>
+                    <!--在PHP中生成内容-->
+                </div>
+            </div>
+
+            <div class="clearfix">
+            </div>
+        </div>
+
+        <div id="About">
+            <p>Copyright 2012 NJAU CS</p>
+        </div>
+    </body>
+</html>

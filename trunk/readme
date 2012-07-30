@@ -1,0 +1,43 @@
+// 2012-06-10
+
+安装方法
+========
+1. 在lamp环境下将解压后的网站目录放到在web服务目录下，
+   根据自己的数据库配置情况修改config.php文件中的相关配置信息。
+
+2. 参照自己的情况修改config.php文件中的$dbConfFile路径，
+   建立自己的数据库配置文件$dbConfFile，文件路径和文件名
+   默认为/var/wwwi/dbconf/dafen.conf，定义于config.php文件。
+
+3. 数据库配置文件$dbConfFile中应包含如下内容：
+	<?php
+	$host	= "your_hostname";
+	$user	= "your_db_username";
+	$pwd	= "your_db_pass";
+	$db	= "your_db_name";
+
+	$dbServs = array($host, $db, $user, $pwd);
+	?>
+
+4. 在数据库中配置好相应的用户和数据库，用户要有足够的权限，用
+   相应的用户直接登入数据库，然后运行网站目录下的docs/create_table.sql
+   创建表:
+   mysql> source /var/www/a/dbdu/docs/create_table.sql
+   然后运行docs/testdata.sql填入测试数据:
+   mysql> source /var/www/a/dbdu/docs/testdata.sql
+
+5. 在浏览器中浏览网站目录即可看到示例页面。
+   注意，没有插入测试数据网站也可以运行，只是没有用户也没有资源
+   和评价等，需要手动注册。
+   测试账户为
+   	email: testN@dafen.com (testN 中的'N'可以替换为1-6的任何一个数字)
+	password: astest
+   如 email:test2@dafen.com	password:astest
+
+
+关于文档
+========
+1. 开发者请认真阅读docs/developer_doc文件
+   理解系统的架构，明确编码规范。
+
+2. 非开发者欲了解本系统，请阅读docs/system_doc文件。

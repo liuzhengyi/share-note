@@ -1,0 +1,372 @@
+大学生学习资料分享系统*系统文档
+
+总述
+=========
+本B/S系统基于MVC架构，使用PHP脚本语言、MySQL数据库，以apache2作为web服务程序。
+在LAMP平台上搭建了一个允许用户分享（上传、下载、评论和投票）学习资料的平台。
+
+架构
+=========
+关于MVC架构
+------------
+	MVC模式（三层架构模式）（Model-View-Controller）是软件工程中的一种软
+	件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和
+	控制器（Controller）。
+	MVC模式最早由Trygve Reenskaug在1974年[1]提出，是施乐帕罗奥多研究中心
+	在20世纪80年代为程序语言Smalltalk发明的一种软件设计模式。MVC模式的目
+	的是实现一种动态的程式设计，使后续对程序的修改和扩展简化，并且使程序
+	某一部分的重复利用成为可能。除此之外，此模式通过对复杂度的简化，使程
+	序结构更加直观。软件系统通过对自身基本部份分离的同时也赋予了各个基本
+	部分应有的功能。专业人员可以通过自身的专长分组：
+		控制器Controller - 负责转发请求，对请求进行处理。
+		视图View - 界面设计人员进行图形界面设计。
+		模型Model - 程序员编写程序应有的功能（实现算法等等）、数
+				据库专家进行数据管理和数据库设计。
+	模型（Model） 
+		“数据模型”（Model）用于封装与应用程序的业务逻辑相关的数据以
+		及对数据的处理方法。“模型”有对数据直接访问的权力，例如对数据
+		库的访问。“模型”不依赖“视图”和“控制器”，也就是说，模型不关心
+		它会被如何显示或是如何被操作。但是模型中数据的变化一般会通过
+		一种刷新机制被公布。为了实现这种机制，那些用于监视此模型的视
+		图必须事先在此模型上注册，从而，视图可以了解在数据模型上发生
+		的改变。
+	视图（View）
+		视图层能够实现数据有目的的显示（理论上，这不是必需的）。在视
+		图中一般没有程序上的逻辑。为了实现视图上的刷新功能，视图需要
+		访问它监视的数据模型（Model），因此应该事先在被它监视的数据
+		那里注册。
+	控制器（Controller）
+		控制器起到不同层面间的组织作用，用于控制应用程序的流程。它处
+		理事件并作出响应。“事件”包括用户的行为和数据模型上的改变。
+
+本系统架构
+------------
+	1. 系统目录极简版（精简版见附录）
+	webRoot
+	├── models/	数据模型
+	├── templates/	布局模板
+	├── do.php	用户POST动作控制转发器
+	├── modules.php	用户GET动作控制转发器
+	├── action/	包含用户POST动作处理文件
+	├── modules/	包含用户GET动作处理文件
+	└── compile.sh	编译脚本
+
+	2. 数据模型 models/目录
+	Model中的文件和Templates中的文件一一对应，存放的都是获取数据的语句，与
+	页面布局没有任何关系。仅提供数据接口，供templates中相应的文件使用。
+	例：models/modules/res/res_show.php文件中提供的数据如下：
+		<?php
+		/*	data instructions:
+		 * $has_review	--> 该资源是否有评论
+		 * 
+		 * $res_name 	--> 资源名称
+		 * $res_cour	--> 相关课程
+		 * $res_typ	--> 资源类型
+		 * $res_size	--> 资源大小 单位字节
+		 * $res_uptime 	--> 资源上传时间
+		 * $res_user 	--> 上传用户id
+		 * $res_sour 	--> 资源来源
+		 * $res_url 	--> 相关url
+		 * $res_down 	--> 下载次数
+		 * $res_level	--> 资源级别
+		 * $res_intro	--> 资源简介
+		 * $res_path	--> 资源下载路径
+		 *
+		 * $has_review	--> 是否有评论
+		 * $recent_reviews[n][]	(最近评论，n <=3 && n >= 0)
+		 *		ver	--> 评论者姓名
+		 *		rcnt	--> 评论内容
+		 *		rid	--> 评论id
+		 *		pa	--> 赞成数
+		 *		ca	--> 反对数
+		 *		pt	--> 评论发布时间
+		 *		
+		 **/
+		?>
+	
+	3. 视图 templates/目录
+	templates中的文件和models中的文件一一对应，存放的是控制页面显示的代码，包
+	括HTML代码、一部分PHP代码和一部分JavaScript代码。页面显示时所需的动态数据
+	均由models目录下相应的文件提供，直接以变量名使用之。变量名参照相应的数据
+	模型文件。
+	例：templates/default/modules/res/res_show.php文件中可以直接使用数据：
+		<h2><?php echo $res_name;?></h2>
+		<table border='0'>
+			<tr>
+				<td>所属科目：</td><td><?php echo $res_cour;?></td>
+			</tr> <tr>
+				<td>类型：</td><td><?php echo $res_type;?></td>
+			</tr> <tr>
+				<td>大小：</td><td><?php echo $res_size;?> K</td>
+			</tr> <tr>
+				<td>上传时间：</td><td><?php echo $res_uptime;?></td>
+			</tr> <tr>
+				<td>上传用户：</td><td><?php echo $res_user;?></td>
+			</tr> <tr>
+				<td>来源：</td><td><?php echo $res_sour;?></td>
+			</tr> <tr>
+				<td>URL：</td><td><?php echo $res_url;?></td>
+			</tr> <tr>
+				<td>下载次数：</td><td><?php echo $res_down;?></td>
+			</tr> <tr>
+				<td>等级：</td><td><?php echo $res_level;?></td>
+			</tr>
+		</table>
+
+	4. 控制器 do.php和modules.php
+	其中do.php控制用户的post请求，modules.php控制get请求。
+	所有表单的action都是形如"do.php?act=actid"的链接。这样，所有的表单都会被提交
+	给do.php处理，do.php通过url中的参数act判断用户请求的动作，然后从自身记录的动作
+	列表中查找相应的处理控制条目，一旦找到，则将相应的处理文件动态包含进来，然后完
+	成表单处理动作，如果找不到已经登记的控制条目，则转向默认条目或错误处理条目。
+	do.php中的部分代码如下：
+		// 登记的合法处理动作
+		$actArray=array(
+			"login"=> array('action/login_act.php','home.php'),
+			"logout"=> array('action/logout_act.php','main.php'),
+			"forget" => array('action/user_forget.action.php','modules.php?app=user_forget'),
+			"user_pw_change" => array('action/user_pw_change.action.php','modules.php?app=modify'),
+			"reg"=> array('action/reg_act.php','main.php'),
+			"res_upl"=> array('action/res/res_upl.php','home.php'),
+			"review"=> array('action/res/res_review.php',''),
+
+			"revup" => array('action/rev/revup_act.php', ''),
+			"revdown" => array('action/rev/revdown_act.php', ''),
+			);
+	除home.php和main.php外，所有的显示模块，都是通过modules.php控制器控制显示的。
+	控制方法与do.php类似。所有请求模块的链接形如"modules.php?app=appid"。
+	modules.php中登记有所有合法的模块及请求名称，通过url中的参数判断，用户请求的模块，
+	然后将该负责该模块的文件包含进来，呈现给用户。
+	modules.php中的部分代码：
+		// 获取欲访问的modules的id
+		$appId=getAppId();
+		if(array_key_exists($appId,$appArray)){
+			$apptarget=$appArray[$appId];
+			require($apptarget);
+		}else{
+			echo '<script>top.location.href="'.$siteDomain.$indexFile.'";</script>';
+		}
+
+	在用户层面看来就是，除了main.php和home.php外，网站的所有页面的url都是形如"modules.php?app=xxx"的。
+	开发者开发了新的模块之后，也要在do.php和modules.php中登记，通过系统的接口展示给用户。
+	
+	5. 编译器 compile.sh
+	前面提过，所有的页面在开发阶段被强制分离为数据模型和页面模型两部分。这两部分在编译阶段，被连接到
+	一起，形成一个完整的页面文件，然后被modules.php包含，相应给用户。
+	由于编译工作比较简单，由一个bash脚本compile.sh完成。
+	正式的编译脚本，应该能够处理模板语言，并将模板语言翻译为底层的实际语言。
+	由于我们的系统比较简单，没有采用模板语言，直接用了底层的实际语言，所以没有翻译的翻译的过程。
+	脚本所做的事情，不过是将相应的数据模型文件和相应的页面模型文件连接到一起，并放到合适的目录下而已。
+	compile.sh 部分代码：
+		for FILEPATH in `find "$COMPILE_SRC1" -maxdepth 1 -type f -name '*.php'` ; do
+			FILE=`echo $FILEPATH | sed "s/^.*\///g"`;
+			FILE_SRC1="$COMPILE_SRC1$FILE";
+			FILE_SRC2="$COMPILE_SRC2$FILE";
+			FILE_DST="$COMPILE_DST$FILE";
+			echo -ne "$COMPILE_MSG" > "$FILE_DST";
+			cat "$FILE_SRC1" "$FILE_SRC2" >> "$FILE_DST";
+			if [ 0 == "$?" ]; then
+				echo "OK. file $FILE_DST created.";
+			else
+				if [ -e "$FILE_DST" ]; then
+					rm "$FILE_DST";
+				fi
+				echo "FAILED. file $FILE_DST not create.";
+			fi
+		done;
+
+	6. 动作 action/目录
+	存放系统所有的表单处理文件，用户提交表单时，由do.php判断需要调用哪个action文件，然后
+	将相应的action文件包含进来，然后处理用户提交的数据。
+	action/目录树：
+		├── ajax
+		│   ├── rev_down.php
+		│   └── rev_up.php
+		├── exam
+		│   ├── log_act.php
+		│   └── reg_act.php
+		├── login_act.php
+		├── logout_act.php
+		├── reg_act.php
+		├── res
+		│   ├── res_review.php
+		│   └── res_upl.php
+		├── rev
+		│   ├── revdown_act.php
+		│   └── revup_act.php
+		├── user_forget.action.php
+		└── user_pw_change.action.php
+
+		4 directories, 13 files
+	
+	7. 编译后的文件 modules/目录
+	存放编译后的文件，用户请求页面时，由modules.php判断需要调用哪些模块，然后
+	将相应模块包含进来，返回给用户。
+	modules/目录树：
+		├── exam
+		│   ├── user_list.php
+		│   ├── user_log.php
+		│   └── user_reg.php
+		├── res
+		│   ├── res_download_list.php
+		│   ├── res_sea.php
+		│   ├── res_show.php
+		│   ├── res_upload_list.php
+		│   └── res_upl.php
+		├── rev
+		│   └── rev_list.php
+		└── user
+		    ├── user_forget.php
+		    ├── user_pw_change.php
+		    └── user_reg.php
+
+		4 directories, 12 files
+
+系统模块
+-----------
+	1. user
+		该模块下目前有用户注册，用户更改密码，用户找回密码功能。
+	2. resource
+		该模块下目前有资源检索，资源展示，资源下载，资源上传等功能。
+	3. review
+		该模块下目前有评论列表功能。
+	4. uiparts
+		该模块下有页头，页尾，友链，登录框等可以被其他页面包含的模块。
+
+系统底层封装
+-----------
+	1. 数据库封装
+		为了方便使用和系统的模块化，我们将数据库封装为一个类。类提供了
+		检索一行，分页检索，验证存在，更新删除等操作的接口。
+		开发着需要进行数据库操作时，只需新建一个数据库类：
+			$dbo = new dbex($dbServs);
+		即可使用类提供的接口。
+		例如，验证用户注册时输入的邮箱是否已经使用过，可以这样做：
+			$is_used = $dbo->check_exist("user_email", "$email");
+			if($is_used) {	// $is_used = TRUE
+				echo '您输入的邮箱地址已经使用过了，请重新输入';
+			} else {	// $is_used = FALSE;
+				...
+			}
+		数据库封装的部分代码如下：
+			public function check_exist($key, $value, $table="user_basic")
+			{
+				if(empty($key) || empty($value) || empty($table)) {
+					return 0;
+				} else {
+					$sql = "select 1 from $table where $key = '$value' limit 1";
+					$res = $this->dbc->query($sql);
+					return $res->num_rows;
+				}
+			}
+
+	2. cookie session封装
+		为了统一cookie和session的使用，防止串用。我们对cookie和session也进行
+		了封装，开发者应该直接使用封装好的函数。
+
+	3. 常用函数封装
+		另外，对于常用的函数，如检测参数的函数等，我们也进行统一编写，作为系统的支撑库。
+		存放在foundation目录下。
+		开发者需要用到相关函数时，应该先将相应函数所在的文件包含进来，然后使用。
+
+
+系统数据库
+==============
+	系统的数据库比较简单，逻辑上总共有五个基本表，没有用到视图等扩展。
+	这些表依次是：
+		用户表	user
+			用户id 用户邮箱 用户名 用户密码 注册时间 学校 专业 入学年份
+			最后登录ip 上传数量 下载数量 权威值 贡献值
+		资源表	resource
+			资源id 下载次数 路径 级别 是否被审核 资源名称 上传时间
+			上传用户id 资源大小 相关课程 类型 来源 相关url 简介
+		评论表	review
+			评论id 用户id 资源id 评论内容 赞同数 反对数 发布时间
+		投票表	vote
+			投票id 用户id 资源id 投票值
+		下载表	download
+			下载id 下载时间 下载者id 资源id
+	实际实现过程中，为了提高数据库服务器的性能，我们对用户表和资源表进行了垂直分割。
+	将用户表分割为 用户基本表和用户变化表，将资源表分割为 资源基本表和资源变化表。
+	基本表存放不需要或极少需要改动的信息，变化表存放需要频繁改动的信息。
+	这也为以后的数据库读写分离，负载均衡打下了基础。
+	建表文件为docs/create_table.sql。部分代码如下：
+		DROP TABLE IF EXISTS `user_var`;
+		CREATE TABLE `user_var` (
+		  `user_id` smallint(5) unsigned NOT NULL ,
+		  `login_ip` int(10) unsigned ,
+		  `up_amount` tinyint(3) unsigned NOT NULL default 0,
+		  `down_amount` smallint(5) unsigned NOT NULL default 0,
+		  `authority_score` int(11) NOT NULL default 0,
+		  `contribution_score` int(11) NOT NULL default 0,
+		  PRIMARY KEY  (`user_id`)
+		) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+用到技术和工具及简介
+====================
+1. VIM 7.2
+-----------
+	VIM - VI Improved, a programmers text editor(程序员的文本编辑器).
+	和UNIX下的大多数工具一样，VIM具有陡峭的学习曲线，这意味着你短时间内
+	很难熟练掌握VIM，你可能需要一周才能适应VIM，而熟练使用VIM则需要更久。
+	然而，一旦你能熟练使用VIM，你将很难再回到以前那些低效的编辑器中去。
+2. PHP 5.3.2
+-------------
+	超文本预处理语言，多用来创建动态网页，但实际用途远不仅如此。
+	作为一门脚本语言，PHP可以像shell一样，由命令行解释器解释执行。
+	简单易学，功能强大。
+3. MySQL 5.1
+-------------
+	开源数据库。
+4. Apache 2.2.14
+-----------------
+	开源HTTP服务器。
+5. HTML
+--------
+	超文本标记语言。
+6. CSS
+-------
+	层叠样式表。
+7. JavasSript
+--------------
+	学名ECMAScript
+	由浏览器解释执行的脚本语言。
+	运行于客户端，可以完成交互式功能，页面动作。
+8. AJAX
+--------
+	异步JavaScript与XML。
+	用于局部更新页面，提高web服务的响应速度。
+
+附录
+===========
+精简目录树
+-----------
+..
+├── action/
+├── ajax/
+├── compile.sh
+├── config.php
+├── docs/
+├── do.php
+├── foundation/
+├── guessnum.htm
+├── home.php
+├── includes.php
+├── index.php
+├── language/
+├── lib/
+├── main.php
+├── models/
+├── modules/
+├── modules.php
+├── readme
+├── ref/
+├── skin/
+├── temp/
+├── templates/
+├── test/
+├── testdo.php
+├── test.php
+├── uiparts/
+└── uploads/

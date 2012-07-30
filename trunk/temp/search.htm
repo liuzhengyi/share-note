@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8" xml:lang="utf-8">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>大学生学习资料分享中心</title>
+	    <link rel="stylesheet" type="text/css" href="./skin/default/dafen/main.css" />
+    </head>
+    <body>
+        <div id="TitleContainer">
+            <div id="MainMenu">
+                <ul>
+                    <li><a href="index.php?content=index">主页</a></li>
+                    <li><a href="index.php?content=category">资源分类</a></li>
+                    <li><a href="help.php?content=help">使用帮助</a></li>
+                    <li><a href="about.php?content=about">关于我们</a></li>
+                </ul>
+            </div>
+            <div id="TitleImg">
+                <img src="./skin/default/dafen/logo.png" alt="大学生学习资料分享中心"/>
+            </div>
+        </div>
+
+        <div id="MainContainer">
+            <div id="MainLeft">
+                <div id="News">
+                    <h2>公告</h2>
+                    <!--在PHP中生成内容-->
+                </div>
+                <div id="FriendLinks">
+                    <h2>友情链接</h2>
+                    <!--在PHP中生成内容-->
+                </div>
+            </div>
+            <div id="MainMiddle">
+                <div id="Search">
+                    <form>
+                        <input type="textfield" maxlength="100"/>
+                        <input type="button" value="搜索" />
+                    </form>
+                </div>
+                <div id="ResourceShow">
+					<h2>搜索结果</h2>
+
+					<h3><a href="#">资源1</a></h3>
+					<p>资源1描述</p>
+
+					<hr/>
+					<h3><a href="#">资源2</a></h3>
+					<p>资源2描述</p>
+
+					<hr/>
+					<h3><a href="#">资源3</a></h3>
+					<p>资源3描述</p>
+                </div>
+            </div>
+            <div id="MainRight">
+                <div id="UserLogin">
+					<table border='0'>
+						<tr>
+							<td>用户名：</td><td><?php echo $user_name;?></td>
+						</tr>
+						<tr>
+							<td>权威值：</td><td><?php echo $user_auth;?></td>
+						</tr>
+						<tr>
+							<td>贡献值：</td><td><?php echo $user_cont;?></td>
+						</tr>
+						<tr>
+							<td><a href="modules.php?app=upload">上传资料</a></td>
+							<td><a href="do.php?act=logout">退出登录</a></td>
+						</tr>
+					</table>
+                </div>
+                <div id="GoodResource">
+                    <h2>优秀资源</h2>
+                    <!--在PHP中生成内容-->
+                </div>
+            </div>
+
+            <div class="clearfix">
+            </div>
+        </div>
+
+        <div id="About">
+            <p>Copyright 2012 NJAU CS</p>
+        </div>
+    </body>
+</html>

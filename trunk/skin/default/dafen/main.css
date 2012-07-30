@@ -1,0 +1,181 @@
+/*
+div
+{
+	outline: blue dotted 1px;
+}
+*/
+body
+{
+	margin: 0;
+	margin-top: 5px;
+
+	background: #abc;
+	font: normal 90% "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
+}
+
+div#TitleContainer
+{
+	position: relative;
+	margin:auto;
+	width: 890px;
+
+	border-bottom: 4px solid #000;
+}
+	div#TitleImg
+	{
+		width: 540px;
+		margin-left: 10px;
+		display: block;
+	}
+	div#MainMenu
+	{
+		width: 300px;
+		margin-right: 10px;
+		text-align: right;
+		float: right;
+	}
+		div#MainMenu ul
+		{
+			list-style-type: none;
+		}
+		div#MainMenu li
+		{
+			display: inline;
+			margin: 0;
+			padding: 2px;
+			padding-left: 4px;
+			padding-right: 4px;
+			border: 1px solid #000;
+			background: rgb(80, 80, 80);
+		}
+		div#MainMenu a
+		{
+			text-decoration: none;
+			color: #EEE;
+		}
+		div#MainMenu a:hover
+		{
+			color: #ABC;
+		}
+
+div#MainContainer
+{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 870px;
+	background-color: #EEE;
+}
+div#MainContainer h2
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	color: #EEE;
+	background-color: #abc;
+}
+	div#MainLeft
+	{
+		margin-left: 5px;
+		margin-right: 5px;
+		width: 200px;
+		float: left;
+		clear: left;
+	}
+		div#News
+		{
+		}
+		div#FriendLinks
+		{
+		}
+			div#FriendLinks li
+			{
+				margin-top: 7px;
+				font-size: 1em;
+			}
+	div#MainMiddle
+	{
+		width: 430px;
+		float: left;
+	}
+		div#Search
+		{
+			margin: 5px;
+		}
+			div#Search input#text
+			{
+				width: 320px;
+			}
+			div#Search input#btn
+			{
+				width: auto;
+			}
+		div#MainShow
+		{
+			margin: 5px;
+		}
+			div#MainShow span.emtext
+			{
+				font-weight: bold;
+				font-size: 1.2em;
+			}
+	div#MainRight
+	{
+		width: 220px;
+		float: left;
+		clear: right;
+	}
+		div#UserLogin
+		{
+			margin-left: 5px;
+			margin-right: 0px;
+		}
+			div#UserLogin input#UsernameInput, input#PasswordInput
+			{
+				width: 200px;
+			}
+			div#UserLogin input#BtnLogin, input#BtnRegister
+			{
+				width: auto;
+				margin-top: 5px;
+				margin-right: 20px;
+			}
+		div#GoodResource
+		{
+			margin-left: 5px;
+			margin-right: 0px;
+		}
+div#Copyright
+{
+	position: relative;
+	margin: auto;
+	width: 870px;
+	background-color: #EEE;
+	border-top: 2px solid #000;
+	text-align: center;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+/*User register page use*/
+span.hint
+{
+	color: #080;
+}
+span.hint_result
+{
+	color: #F00;
+}
+/*Clear floats hack: http://positioniseverything.net/easyclearing.html*/
+.clearfix:after
+{
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+.clearfix {display: inline-table;}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */

@@ -1,0 +1,65 @@
+[H[2J(B[mtop - 10:54:32 up 4 days,  1:39, 16 users,  load average: 0.00, 0.04, 0.10(B[m[39;49m[K
+Tasks:(B[m[39;49m(B[m 165 (B[m[39;49mtotal,(B[m[39;49m(B[m   1 (B[m[39;49mrunning,(B[m[39;49m(B[m 162 (B[m[39;49msleeping,(B[m[39;49m(B[m   1 (B[m[39;49mstopped,(B[m[39;49m(B[m   1 (B[m[39;49mzombie(B[m[39;49m[K
+Cpu(s):(B[m[39;49m(B[m  6.6%(B[m[39;49mus,(B[m[39;49m(B[m  2.0%(B[m[39;49msy,(B[m[39;49m(B[m  0.0%(B[m[39;49mni,(B[m[39;49m(B[m 90.6%(B[m[39;49mid,(B[m[39;49m(B[m  0.7%(B[m[39;49mwa,(B[m[39;49m(B[m  0.0%(B[m[39;49mhi,(B[m[39;49m(B[m  0.0%(B[m[39;49msi,(B[m[39;49m(B[m  0.0%(B[m[39;49mst(B[m[39;49m[K
+Mem: (B[m[39;49m(B[m  1015888k (B[m[39;49mtotal,(B[m[39;49m(B[m   974760k (B[m[39;49mused,(B[m[39;49m(B[m    41128k (B[m[39;49mfree,(B[m[39;49m(B[m    39828k (B[m[39;49mbuffers(B[m[39;49m[K
+Swap:(B[m[39;49m(B[m  1037308k (B[m[39;49mtotal,(B[m[39;49m(B[m   162336k (B[m[39;49mused,(B[m[39;49m(B[m   874972k (B[m[39;49mfree,(B[m[39;49m(B[m   231944k (B[m[39;49mcached(B[m[39;49m[K
+[6;1H
+[7m  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                           (B[m[39;49m[K
+(B[m(B[m32228 uu        20   0  2668 1104  816 R    6  0.1   0:00.05 top                                                               (B[m[39;49m
+(B[m    3 root      20   0     0    0    0 S    2  0.0   3:19.07 ksoftirqd/0                                                       (B[m[39;49m
+(B[m 1581 root      20   0 77384  20m 4904 S    2  2.1  61:04.76 Xorg                                                              (B[m[39;49m
+(B[m 2011 uu        20   0 34972 2220 1424 S    2  0.2  65:03.88 ibus-daemon                                                       (B[m[39;49m
+(B[m 2258 uu        20   0  231m  44m  12m S    2  4.5  25:45.54 chrome                                                            (B[m[39;49m
+(B[m20507 uu        20   0  207m  26m 8800 S    2  2.7  39:26.80 gnome-terminal                                                    (B[m[39;49m
+(B[m22342 uu        20   0 26180  10m 3640 S    2  1.1   2:45.21 ibus-engine-pin                                                   (B[m[39;49m
+(B[m    1 root      20   0  3332 1228  692 S    0  0.1   0:11.62 init                                                              (B[m[39;49m
+(B[m    2 root      20   0     0    0    0 S    0  0.0   0:00.15 kthreadd                                                          (B[m[39;49m
+(B[m    6 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/0                                                       (B[m[39;49m
+(B[m   11 root       0 -20     0    0    0 S    0  0.0   0:00.00 cpuset                                                            (B[m[39;49m
+(B[m   12 root       0 -20     0    0    0 S    0  0.0   0:00.00 khelper                                                           (B[m[39;49m
+(B[m   13 root       0 -20     0    0    0 S    0  0.0   0:00.00 netns                                                             (B[m[39;49m
+(B[m   15 root      20   0     0    0    0 S    0  0.0   0:00.37 sync_supers                                                       (B[m[39;49m
+(B[m   16 root      20   0     0    0    0 S    0  0.0   0:00.02 bdi-default                                                       (B[m[39;49m
+(B[m   17 root       0 -20     0    0    0 S    0  0.0   0:00.00 kintegrityd                                                       (B[m[39;49m
+(B[m   18 root       0 -20     0    0    0 S    0  0.0   0:00.00 kblockd                                                           (B[m[39;49m
+(B[m   19 root       0 -20     0    0    0 S    0  0.0   0:00.00 ata_sff                                                           (B[m[39;49m
+(B[m   20 root      20   0     0    0    0 S    0  0.0   0:00.16 khubd                                                             (B[m[39;49m
+(B[m   21 root       0 -20     0    0    0 S    0  0.0   0:00.00 md                                                                (B[m[39;49m
+(B[m   23 root      20   0     0    0    0 S    0  0.0   0:00.23 khungtaskd                                                        (B[m[39;49m
+(B[m   24 root      20   0     0    0    0 S    0  0.0   0:12.74 kswapd0                                                           (B[m[39;49m
+(B[m   25 root      25   5     0    0    0 S    0  0.0   0:00.00 ksmd                                                              (B[m[39;49m
+(B[m   26 root      20   0     0    0    0 S    0  0.0   0:00.08 fsnotify_mark                                                     (B[m[39;49m
+(B[m   27 root      20   0     0    0    0 S    0  0.0   0:00.00 ecryptfs-kthrea                                                   (B[m[39;49m
+(B[m   28 root       0 -20     0    0    0 S    0  0.0   0:00.00 crypto                                                            (B[m[39;49m[6;1H[K[H(B[mtop - 10:54:35 up 4 days,  1:39, 16 users,  load average: 0.00, 0.04, 0.10(B[m[39;49m[K
+Tasks:(B[m[39;49m(B[m 165 (B[m[39;49mtotal,(B[m[39;49m(B[m   1 (B[m[39;49mrunning,(B[m[39;49m(B[m 162 (B[m[39;49msleeping,(B[m[39;49m(B[m   1 (B[m[39;49mstopped,(B[m[39;49m(B[m   1 (B[m[39;49mzombie(B[m[39;49m[K
+Cpu(s):(B[m[39;49m(B[m  1.3%(B[m[39;49mus,(B[m[39;49m(B[m  1.0%(B[m[39;49msy,(B[m[39;49m(B[m  0.0%(B[m[39;49mni,(B[m[39;49m(B[m 97.7%(B[m[39;49mid,(B[m[39;49m(B[m  0.0%(B[m[39;49mwa,(B[m[39;49m(B[m  0.0%(B[m[39;49mhi,(B[m[39;49m(B[m  0.0%(B[m[39;49msi,(B[m[39;49m(B[m  0.0%(B[m[39;49mst(B[m[39;49m[K
+Mem: (B[m[39;49m(B[m  1015888k (B[m[39;49mtotal,(B[m[39;49m(B[m   970916k (B[m[39;49mused,(B[m[39;49m(B[m    44972k (B[m[39;49mfree,(B[m[39;49m(B[m    39828k (B[m[39;49mbuffers(B[m[39;49m[K
+Swap:(B[m[39;49m(B[m  1037308k (B[m[39;49mtotal,(B[m[39;49m(B[m   162336k (B[m[39;49mused,(B[m[39;49m(B[m   874972k (B[m[39;49mfree,(B[m[39;49m(B[m   227612k (B[m[39;49mcached(B[m[39;49m[K
+[6;1H
+[7m  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                           (B[m[39;49m[K
+(B[m 1581 root      20   0 77384  20m 4904 S    1  2.1  61:04.80 Xorg                                                              (B[m[39;49m
+(B[m 2258 uu        20   0  231m  44m  12m S    1  4.5  25:45.57 chrome                                                            (B[m[39;49m
+(B[m20507 uu        20   0  207m  26m 8800 S    1  2.7  39:26.83 gnome-terminal                                                    (B[m[39;49m
+(B[m 2276 uu        20   0  146m  14m 9424 S    1  1.5   2:23.00 chrome                                                            (B[m[39;49m
+(B[m(B[m32228 uu        20   0  2672 1112  824 R    1  0.1   0:00.07 top                                                               (B[m[39;49m
+(B[m    3 root      20   0     0    0    0 S    0  0.0   3:19.08 ksoftirqd/0                                                       (B[m[39;49m
+(B[m 1544 mysql     20   0  135m 4256 1736 S    0  0.4   1:47.87 mysqld                                                            (B[m[39;49m
+(B[m 1574 uu        20   0  183m  34m  17m S    0  3.5   1:32.85 chrome                                                            (B[m[39;49m
+(B[m 2022 uu        20   0 29252 2380 1804 S    0  0.2  29:36.45 ibus-x11                                                          (B[m[39;49m
+(B[m 2067 uu        20   0  548m  94m  28m S    0  9.6  53:45.92 chrome                                                            (B[m[39;49m
+(B[m30121 root      20   0     0    0    0 S    0  0.0   0:01.38 kworker/1:3                                                       (B[m[39;49m
+(B[m    1 root      20   0  3332 1228  692 S    0  0.1   0:11.62 init                                                              (B[m[39;49m
+(B[m    2 root      20   0     0    0    0 S    0  0.0   0:00.15 kthreadd                                                          (B[m[39;49m
+(B[m    6 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/0                                                       (B[m[39;49m
+(B[m   11 root       0 -20     0    0    0 S    0  0.0   0:00.00 cpuset                                                            (B[m[39;49m
+(B[m   12 root       0 -20     0    0    0 S    0  0.0   0:00.00 khelper                                                           (B[m[39;49m
+(B[m   13 root       0 -20     0    0    0 S    0  0.0   0:00.00 netns                                                             (B[m[39;49m
+(B[m   15 root      20   0     0    0    0 S    0  0.0   0:00.37 sync_supers                                                       (B[m[39;49m
+(B[m   16 root      20   0     0    0    0 S    0  0.0   0:00.02 bdi-default                                                       (B[m[39;49m
+(B[m   17 root       0 -20     0    0    0 S    0  0.0   0:00.00 kintegrityd                                                       (B[m[39;49m
+(B[m   18 root       0 -20     0    0    0 S    0  0.0   0:00.00 kblockd                                                           (B[m[39;49m
+(B[m   19 root       0 -20     0    0    0 S    0  0.0   0:00.00 ata_sff                                                           (B[m[39;49m
+(B[m   20 root      20   0     0    0    0 S    0  0.0   0:00.16 khubd                                                             (B[m[39;49m
+(B[m   21 root       0 -20     0    0    0 S    0  0.0   0:00.00 md                                                                (B[m[39;49m
+(B[m   23 root      20   0     0    0    0 S    0  0.0   0:00.23 khungtaskd                                                        (B[m[39;49m
+(B[m   24 root      20   0     0    0    0 S    0  0.0   0:12.74 kswapd0                                                           (B[m[39;49m[6;1H[K[6;1H[7m Unknown command - try 'h' for help (B[m[39;49m[K[34;1H[?12l[?25h

@@ -1,0 +1,225 @@
+-- user test data --
+insert into user_basic values(NULL, 'test1@dafen.com', 'test1', sha1('astest'), now(), '南京农业大学', '计算机科学与技术', 2009);
+insert into user_var values(last_insert_id(), 1231231234, 3, 10, 0, 10);
+insert into user_basic values(NULL, 'test2@dafen.com', 'test2', sha1('astest'), now(), '南京农业大学', '计算机科学与技术', 2009);
+insert into user_var values(last_insert_id(), 1231231234, 3, 10, 0, 10);
+insert into user_basic values(NULL, 'test3@dafen.com', 'test3', sha1('astest'), now(), '南京农业大学', '计算机科学与技术', 2009);
+insert into user_var values(last_insert_id(), 1231231234, 3, 10, 0, 10);
+insert into user_basic values(NULL, 'test4@dafen.com', 'test4', sha1('astest'), now(), '南京农业大学', '计算机科学与技术', 2009);
+insert into user_var values(last_insert_id(), 1231231234, 3, 10, 0, 10);
+insert into user_basic values(NULL, 'test5@dafen.com', 'test5', sha1('astest'), now(), '南京农业大学', '计算机科学与技术', 2009);
+insert into user_var values(last_insert_id(), 1231231234, 3, 10, 0, 10);
+insert into user_basic values(NULL, 'test6@dafen.com', 'test6', sha1('astest'), now(), '南京农业大学', '计算机科学与技术', 2009);
+insert into user_var values(last_insert_id(), 1231231234, 3, 10, 0, 10);
+
+
+-- resource test data --
+insert into resource_basic values(NULL, '运筹学课堂笔记', now(), 1, 2048, '运筹学', 'xxbj', 'self', 'http://', '我自己上课时做的笔记，每堂课都有，除了有一次拉肚子，请假没上课，没有做笔记。');
+insert into resource_var values(last_insert_id(), 20, 'uploads/default/yunchouxue1.txt', '普通', '0');
+
+insert into resource_basic values(NULL, '信息安全试卷', now(), 1, 3048, '信息安全', 'mnsj', 'self', 'http://', '我自己上课时做的笔记，每堂课都有。');
+insert into resource_var values(last_insert_id(), 40, 'uploads/default/yunchouxue2.txt', '普通', '0');
+
+insert into resource_basic values(NULL, '运筹学往年真题', now(), 1, 2048, '运筹学', 'wnzt', 'self', 'http://', '我自己上课时做的笔记，每堂课都有，除了有一次拉肚子，请假没上课，没有做笔记。');
+insert into resource_var values(last_insert_id(), 30, 'uploads/default/yunchouxue3.txt', '普通', '0');
+
+insert into resource_basic values(NULL, '运筹学复习提纲', now(), 2, 2048, '运筹学', 'fxtg', 'self', 'http://', '我自己上课时做的笔记，每堂课都有，除了有一次拉肚子，请假没上课，没有做笔记。');
+insert into resource_var values(last_insert_id(), 60, 'uploads/default/yunchouxue4.txt', '精品', '0');
+
+insert into resource_basic values(NULL, '信息安全复习提纲', now(), 3, 2048, '信息安全', 'fxtg', 'self', 'http://', '我自己上课时做的笔记，每堂课都有，除了有一次拉肚子，请假没上课，没有做笔记。');
+insert into resource_var values(last_insert_id(), 80, 'uploads/default/yunchouxue5.txt', '精品', '0');
+
+insert into resource_basic values(NULL, '运筹学课件', now(), 4, 2048, '运筹学', 'jskj', 'self', 'http://', '我自己上课时做的笔记，每堂课都有，除了有一次拉肚子，请假没上课，没有做笔记。');
+insert into resource_var values(last_insert_id(), 10, 'uploads/default/yunchouxue6.txt', '普通', '0');
+
+insert into resource_basic values(NULL, '编译原理课件', now(), 4, 2048, '编译原理', 'jskj', 'self', 'http://', '南农，信息院。');
+insert into resource_var values(last_insert_id(), 10, 'uploads/default/bianyiyuanli1.txt', '普通', '0');
+
+insert into resource_basic values(NULL, '编译原理笔记', now(), 1, 2048, '编译原理', 'jskj', 'self', 'http://', '自己平时记的笔记，不足之处，请见谅。南农，信息院。');
+insert into resource_var values(last_insert_id(), 10, 'uploads/default/bianyiyuanli2.txt', '普通', '0');
+
+insert into resource_basic values(NULL, '计算机网络考试重点', now(), 1, 2048, '网络', 'jskj', 'self', 'http://', '考前老师划的重点');
+insert into resource_var values(last_insert_id(), 10, 'uploads/default/wangluo1.txt', '普通', '0');
+
+insert into resource_basic values(NULL, '网络课件', now(), 1, 2048, '网络', 'jskj', 'self', 'http://', '考前老师给的课件');
+insert into resource_var values(last_insert_id(), 10, 'uploads/default/wangluo2.txt', '普通', '0');
+
+insert into resource_basic values(NULL, '网络试卷', now(), 1, 2048, '网络', 'jskj', 'self', 'http://', '考前老师给的往年试卷');
+insert into resource_var values(last_insert_id(), 10, 'uploads/default/wangluo2.txt', '普通', '0');
+
+
+
+-- review test data --
+insert into review values(NULL, 2, 1, '非常好的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '29', '2', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 2;
+insert into review values(NULL, 2, 4, '非常清晰的资源，读起来就像亲自听老师讲课一样，清晰，准确。', '15', '3', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 2;
+insert into review values(NULL, 2, 3, '不错的资源，读起来就像亲自听老师讲课一样，清晰，准确。', '32', '9', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 2;
+insert into review values(NULL, 1, 2, '非常好的笔记，笔记能写成这样，实在令在下佩服。', '23', '3', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 1;
+insert into review values(NULL, 3, 1, '难得的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '13', '43', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 3;
+insert into review values(NULL, 4, 2, '非常好的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '13', '13', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 4;
+insert into review values(NULL, 4, 2, '非常好的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '13', '13', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 4;
+insert into review values(NULL, 2, 1, '非常好的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '29', '2', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 2;
+insert into review values(NULL, 2, 4, '非常清晰的资源，读起来就像亲自听老师讲课一样，清晰，准确。', '15', '3', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 2;
+insert into review values(NULL, 2, 3, '不错的资源，读起来就像亲自听老师讲课一样，清晰，准确。', '32', '9', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 2;
+insert into review values(NULL, 1, 2, '非常好的笔记，笔记能写成这样，实在令在下佩服。', '23', '3', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 1;
+insert into review values(NULL, 3, 1, '难得的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '13', '43', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 3;
+insert into review values(NULL, 4, 2, '非常好的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '13', '13', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 4;
+insert into review values(NULL, 4, 2, '非常好的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '13', '13', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 4;
+insert into review values(NULL, 2, 1, '非常好的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '29', '2', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 2;
+insert into review values(NULL, 2, 4, '非常清晰的资源，读起来就像亲自听老师讲课一样，清晰，准确。', '15', '3', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 2;
+insert into review values(NULL, 2, 3, '不错的资源，读起来就像亲自听老师讲课一样，清晰，准确。', '32', '9', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 2;
+insert into review values(NULL, 1, 2, '非常好的笔记，笔记能写成这样，实在令在下佩服。', '23', '3', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 1;
+insert into review values(NULL, 3, 1, '难得的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '13', '43', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 3;
+insert into review values(NULL, 4, 2, '非常好的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '13', '13', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 4;
+insert into review values(NULL, 4, 2, '非常好的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '13', '13', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 4;
+insert into review values(NULL, 2, 1, '非常好的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '29', '2', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 2;
+insert into review values(NULL, 2, 4, '非常清晰的资源，读起来就像亲自听老师讲课一样，清晰，准确。', '15', '3', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 2;
+insert into review values(NULL, 2, 3, '不错的资源，读起来就像亲自听老师讲课一样，清晰，准确。', '32', '9', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 2;
+insert into review values(NULL, 1, 2, '非常好的笔记，笔记能写成这样，实在令在下佩服。', '23', '3', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 1;
+insert into review values(NULL, 3, 1, '难得的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '13', '43', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 3;
+insert into review values(NULL, 4, 2, '非常好的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '13', '13', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 4;
+insert into review values(NULL, 4, 2, '非常好的笔记，读起来就像亲自听老师讲课一样，清晰，准确。', '13', '13', now() );
+update user_var set up_amount = up_amount + 1 and contribution_score = contribution_score+10 where user_id = 4;
+
+
+-- download test data --
+insert into download values(NULL, now(), 1, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 1;
+insert into download values(NULL, now(), 2, 2);
+update user_var set down_amount  = down_amount + 1 where user_id = 2;
+insert into download values(NULL, now(), 3, 3);
+update user_var set down_amount  = down_amount + 1 where user_id = 3;
+insert into download values(NULL, now(), 4, 4);
+update user_var set down_amount  = down_amount + 1 where user_id = 4;
+insert into download values(NULL, now(), 5, 5);
+update user_var set down_amount  = down_amount + 1 where user_id = 5;
+insert into download values(NULL, now(), 6, 6);
+update user_var set down_amount  = down_amount + 1 where user_id = 6;
+insert into download values(NULL, now(), 1, 7);
+update user_var set down_amount  = down_amount + 1 where user_id = 1;
+insert into download values(NULL, now(), 2, 8);
+update user_var set down_amount  = down_amount + 1 where user_id = 2;
+insert into download values(NULL, now(), 3, 9);
+update user_var set down_amount  = down_amount + 1 where user_id = 3;
+insert into download values(NULL, now(), 4, 10);
+update user_var set down_amount  = down_amount + 1 where user_id = 4;
+insert into download values(NULL, now(), 5, 11);
+update user_var set down_amount  = down_amount + 1 where user_id = 5;
+insert into download values(NULL, now(), 6, 12);
+update user_var set down_amount  = down_amount + 1 where user_id = 6;
+insert into download values(NULL, now(), 1, 13);
+update user_var set down_amount  = down_amount + 1 where user_id = 1;
+insert into download values(NULL, now(), 2, 14);
+update user_var set down_amount  = down_amount + 1 where user_id = 2;
+insert into download values(NULL, now(), 3, 14);
+update user_var set down_amount  = down_amount + 1 where user_id = 3;
+insert into download values(NULL, now(), 4, 3);
+update user_var set down_amount  = down_amount + 1 where user_id = 4;
+insert into download values(NULL, now(), 5, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 5;
+insert into download values(NULL, now(), 6, 2);
+update user_var set down_amount  = down_amount + 1 where user_id = 6;
+insert into download values(NULL, now(), 2, 4);
+update user_var set down_amount  = down_amount + 1 where user_id = 2;
+insert into download values(NULL, now(), 1, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 1;
+insert into download values(NULL, now(), 2, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 2;
+insert into download values(NULL, now(), 3, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 3;
+insert into download values(NULL, now(), 4, 4);
+update user_var set down_amount  = down_amount + 1 where user_id = 4;
+insert into download values(NULL, now(), 5, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 5;
+insert into download values(NULL, now(), 6, 6);
+update user_var set down_amount  = down_amount + 1 where user_id = 6;
+insert into download values(NULL, now(), 1, 3);
+update user_var set down_amount  = down_amount + 1 where user_id = 1;
+insert into download values(NULL, now(), 2, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 2;
+insert into download values(NULL, now(), 3, 2);
+update user_var set down_amount  = down_amount + 1 where user_id = 3;
+insert into download values(NULL, now(), 4, 4);
+update user_var set down_amount  = down_amount + 1 where user_id = 4;
+insert into download values(NULL, now(), 5, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 5;
+insert into download values(NULL, now(), 6, 2);
+update user_var set down_amount  = down_amount + 1 where user_id = 6;
+insert into download values(NULL, now(), 1, 3);
+update user_var set down_amount  = down_amount + 1 where user_id = 1;
+insert into download values(NULL, now(), 2, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 2;
+insert into download values(NULL, now(), 3, 2);
+update user_var set down_amount  = down_amount + 1 where user_id = 3;
+insert into download values(NULL, now(), 4, 3);
+update user_var set down_amount  = down_amount + 1 where user_id = 4;
+insert into download values(NULL, now(), 5, 4);
+update user_var set down_amount  = down_amount + 1 where user_id = 5;
+insert into download values(NULL, now(), 6, 2);
+update user_var set down_amount  = down_amount + 1 where user_id = 6;
+insert into download values(NULL, now(), 2, 3);
+update user_var set down_amount  = down_amount + 1 where user_id = 2;
+insert into download values(NULL, now(), 1, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 1;
+insert into download values(NULL, now(), 2, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 2;
+insert into download values(NULL, now(), 3, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 3;
+insert into download values(NULL, now(), 4, 6);
+update user_var set down_amount  = down_amount + 1 where user_id = 4;
+insert into download values(NULL, now(), 5, 7);
+update user_var set down_amount  = down_amount + 1 where user_id = 5;
+insert into download values(NULL, now(), 6, 2);
+update user_var set down_amount  = down_amount + 1 where user_id = 6;
+insert into download values(NULL, now(), 1, 3);
+update user_var set down_amount  = down_amount + 1 where user_id = 1;
+insert into download values(NULL, now(), 2, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 2;
+insert into download values(NULL, now(), 3, 2);
+update user_var set down_amount  = down_amount + 1 where user_id = 3;
+insert into download values(NULL, now(), 4, 3);
+update user_var set down_amount  = down_amount + 1 where user_id = 4;
+insert into download values(NULL, now(), 5, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 5;
+insert into download values(NULL, now(), 6, 2);
+update user_var set down_amount  = down_amount + 1 where user_id = 6;
+insert into download values(NULL, now(), 1, 3);
+update user_var set down_amount  = down_amount + 1 where user_id = 1;
+insert into download values(NULL, now(), 2, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 2;
+insert into download values(NULL, now(), 3, 2);
+update user_var set down_amount  = down_amount + 1 where user_id = 3;
+insert into download values(NULL, now(), 4, 3);
+update user_var set down_amount  = down_amount + 1 where user_id = 4;
+insert into download values(NULL, now(), 5, 1);
+update user_var set down_amount  = down_amount + 1 where user_id = 5;
+insert into download values(NULL, now(), 6, 2);
+update user_var set down_amount  = down_amount + 1 where user_id = 6;
+insert into download values(NULL, now(), 2, 3);
+update user_var set down_amount  = down_amount + 1 where user_id = 2;
